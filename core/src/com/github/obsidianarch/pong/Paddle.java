@@ -42,13 +42,13 @@ public class Paddle
      * @param world
      *          The world in which the paddle will be created.
      */
-    public Paddle( int x, int height, World world )
+    public Paddle( float x, float height, World world )
     {
-        size = new Vector2( 10, height ); // create the size of the paddle
+        size = new Vector2( 1, height ); // create the size of the paddle
 
         BodyDef bodyDef = new BodyDef(); // the definition of the paddle
         bodyDef.type = BodyDef.BodyType.KinematicBody; // paddles are kinematic, controlled by forces and impulses
-        bodyDef.position.set( x, ( 500 - height ) / 2 ); // center it at the x position defined
+        bodyDef.position.set( x, ( 50 - height ) / 2 ); // center it at the x position defined
 
         body = world.createBody( bodyDef ); // create the body
 
@@ -74,7 +74,7 @@ public class Paddle
         renderer.setColor( color ); // set the color of the renderer
         Vector2 position = body.getPosition(); // get the position of the paddle
 
-        renderer.box( position.x, position.y, 0f, size.x, size.y, 1f );
+        renderer.box( position.x * 10, position.y * 10, 0f, size.x * 10, size.y * 10, 1f );
     }
 
     /**
@@ -82,9 +82,9 @@ public class Paddle
      */
     public void moveUp()
     {
-        if ( getTopPosition() < 450 )
+        if ( getTopPosition() < 45 )
         {
-            body.setLinearVelocity( 0, 100f );
+            body.setLinearVelocity( 0, 15f );
         }
         else
         {
@@ -97,9 +97,9 @@ public class Paddle
      */
     public void moveDown()
     {
-        if ( getBottomPosition() > 50 )
+        if ( getBottomPosition() > 5 )
         {
-            body.setLinearVelocity( 0, -100f );
+            body.setLinearVelocity( 0, -15f );
         }
         else
         {

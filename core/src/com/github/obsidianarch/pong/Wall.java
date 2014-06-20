@@ -75,7 +75,7 @@ public class Wall
         renderer.setColor( color );
 
         Vector2 position = body.getWorldCenter();
-        renderer.box( position.x, position.y, 0f, size.x, size.y, 1f );
+        renderer.box( position.x * 10, position.y * 10, 0f, size.x * 10, size.y * 10, 1f );
     }
 
 }

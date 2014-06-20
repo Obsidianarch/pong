@@ -119,15 +119,15 @@ public class PongGame extends ApplicationAdapter
         walls = new ArrayList< Wall >(); // create the list of walls
 
         // populate the list with the walls
-        walls.add( new Wall( 0, 0, 750, 10, world ) ); // the bottom wall
-        walls.add( new Wall( 0, 490, 750, 10, world ) ); // the top wall
-        walls.add( new Wall( 0, 0, 10, 50, world  ) ); // the bottom left wall
-        walls.add( new Wall( 0, 450, 10, 50, world ) ); // the top left wall
-        walls.add( new Wall( 740, 0, 10, 50, world ) ); // the bottom right wall
-        walls.add( new Wall( 740, 450, 10, 50, world ) ); // the top right wall
+        walls.add( new Wall( 0, 0, 75, 1, world ) ); // the bottom wall
+        walls.add( new Wall( 0, 49, 75, 1, world ) ); // the top wall
+        walls.add( new Wall( 0, 0, 1, 5, world  ) ); // the bottom left wall
+        walls.add( new Wall( 0, 45, 1, 5, world ) ); // the top left wall
+        walls.add( new Wall( 74, 0, 1, 5, world ) ); // the bottom right wall
+        walls.add( new Wall( 74, 45, 1, 5, world ) ); // the top right wall
 
-        humanPaddle = new Paddle( 0, 75, world ); // set up the human paddle
-        computerPaddle = new Paddle( 740, 75, world ); // set up the computer paddle
+        humanPaddle = new Paddle( 0, 7.5f, world ); // set up the human paddle
+        computerPaddle = new Paddle( 74, 7.5f, world ); // set up the computer paddle
 
         spriteBatch = new SpriteBatch(); // create the sprite batch
         font = new BitmapFont(); // create the bitmap font
@@ -175,12 +175,12 @@ public class PongGame extends ApplicationAdapter
         }
 
         // check for scoring
-        if ( ball.body.getPosition().x + ( ball.radius / 2 ) < 10 )
+        if ( ball.body.getPosition().x + ( ball.radius / 2 ) < 1 )
         {
             computerScore++;
             ball.reset( world );
         }
-        else if ( ball.body.getPosition().x + ( ball.radius / 2 ) > 740 )
+        else if ( ball.body.getPosition().x + ( ball.radius / 2 ) > 74 )
         {
             playerScore++;
             ball.reset( world );

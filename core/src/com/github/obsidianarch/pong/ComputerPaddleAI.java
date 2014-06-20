@@ -27,7 +27,7 @@ public class ComputerPaddleAI
     public static void movePaddle( Paddle paddle, Ball ball )
     {
         // the ball is on the opposite side of the net OR the ball is moving away from him
-        if ( ball.body.getPosition().x < 375 || ball.body.getLinearVelocity().x < 0 )
+        if ( ball.body.getPosition().x < 37.5f || ball.body.getLinearVelocity().x < 0 )
         {
             long timeSinceLastMovement = System.currentTimeMillis() - lastDirectionChange; // the time since the last movement change
 
@@ -53,11 +53,11 @@ public class ComputerPaddleAI
         }
         else
         {
-            if ( ball.body.getPosition().y > paddle.getTopPosition( 10 ) )
+            if ( ball.body.getPosition().y > ( paddle.getTopPosition( 1 ) + paddle.getBottomPosition( 1 ) ) / 2 )
             {
                 paddle.moveUp();
             }
-            else if ( ball.body.getPosition().y < paddle.getBottomPosition( 10 ) )
+            else if ( ball.body.getPosition().y < ( paddle.getTopPosition( 1 ) + paddle.getBottomPosition( 1 ) ) / 2 )
             {
                 paddle.moveDown();
             }
